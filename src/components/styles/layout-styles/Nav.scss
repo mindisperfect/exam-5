@@ -1,0 +1,106 @@
+nav {
+//   position: fixed;
+  top: 0;
+  width: 100% !important;
+  z-index: 10;
+  padding: 25px 0;
+  background-color: #232536;
+}
+
+.navcontainer {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.uil-bars {
+  cursor: pointer;
+  color: #f4f0f8;
+  font-size: 35px;
+}
+
+#navbar-responsive {
+  display: block;
+  position: fixed;
+  top: -100%;
+  left: 0;
+  bottom: 0;
+  height: 300px;
+  width: 100%;
+  text-align: center;
+  background-color: #232536e4;
+}
+
+.uil-multiply {
+  cursor: pointer;
+  padding: 25px 30px;
+  color: #f4f0f8;
+  font-size: 35px;
+  position: absolute;
+  right: 0px;
+}
+
+.hamcontent {
+  padding: 25px 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.hamcontent a {
+  margin: 10px;
+  color: #f4f0f8;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.navbutton {
+  margin-left: 20px;
+  display: none;
+  transform: scale(1);
+  background-color: #f4f0f8;
+  color: #232536;
+  border: none;
+  padding: 16px 48px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.navlinks {
+  display: none;
+}
+
+.navlinks a {
+  margin: auto 12px;
+  color: #f4f0f8;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+}
+
+.navbarshrink {
+  padding: 10px 0px;
+  box-shadow: 1px 5px 15px #232536;
+}
+
+@media (min-width: 800px) {
+  .navbutton {
+    display: block;
+  }
+  .hamburger {
+    display: none;
+  }
+  #navbar-responsive {
+    display: none;
+  }
+  .navlinks {
+    display: flex;
+  }
+}

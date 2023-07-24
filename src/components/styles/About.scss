@@ -1,0 +1,128 @@
+.mision-section{
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    // width: 100%;
+    background-color: #F4F0F8;
+
+}
+
+.mision-left {
+    padding-top: 83px;
+    padding-bottom: 100px;
+    padding-left: 87px;
+}
+
+.mision-left h4{
+   padding-bottom: 30px;
+   color: #232536;
+}
+
+.mision-left h2{
+    padding-bottom: 20px;
+}
+
+.mision-left p{
+    color: #6D6E76;
+
+}
+
+.mision-right{
+    margin-left: 90px;
+    padding-bottom: 100px;
+    padding-left: 87px;
+    padding-top: 83px;
+}
+.mision-right h4{
+   padding-bottom: 30px;
+   color: #232536;
+}
+
+.mision-right h2{
+    padding-bottom: 20px;
+}
+
+.mision-right p{
+    color: #6D6E76;
+    
+}
+
+.history-section {
+    padding-left: 100px;
+}
+
+.history-card-1{
+    display: flex;
+    align-items: center;
+    // justify-content: space-between;
+   margin: 100px 0px;
+}
+.history-card-1 h2{
+    font-size: 36px;
+    color: #232536;
+    padding-bottom: 20px;
+}
+.history-card-1 h3{
+    color: #232536;
+    padding-bottom: 18px;
+}
+.history-card-1 p{
+    color: #85868e;
+}
+.img-1{
+    margin-left: 160px;
+    width: 100%;
+}
+.img-2{
+    width: 100%;
+    // margin-left: 40px;
+}
+.history-text-1{
+    margin-left: 50px;
+}
+.history-text-2{
+    margin-left: 130px;
+}
+.history-card-1 img{
+    max-width: 624px;
+    // height: 480px;
+}
+
+
+@media (max-width:1110px){
+    .mision-section{
+        flex-wrap: wrap;
+        // margin-left: 50px;
+    }
+    .mision-right{
+        top: 50px;
+        position: relative;
+        right: 110px;
+        margin-bottom: 50px;
+    }
+    .history-card-1{
+        flex-wrap: wrap;
+    }
+    .img-1{
+        position: relative;
+        right: 160px;
+        top: 30px;
+    }
+    .history-text-2{
+        position: relative;
+        right: 100px;
+    }
+    .line1-container{
+        flex-wrap: wrap;
+    }
+    
+ }
+ @media(max-width:700px){
+	.over-container{
+       flex-direction: column;
+       align-items: center;
+    }
+    .mision-left{
+        padding-top: 20px;
+    }
+}

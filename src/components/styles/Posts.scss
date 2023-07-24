@@ -1,0 +1,51 @@
+
+.textss {
+    padding: 64px 200px 24px;
+    .logoss {
+      display: flex;
+      align-items: center;
+      gap: 17px;
+     
+      .conten {
+          span {
+            color: #592ea9;
+            font-size: 28px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 40px;
+            letter-spacing: -1px;
+          }
+          h4 {
+            color: #6d6e76;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 28px;
+          }
+      }
+    }
+    h1 {
+      font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 64px;
+  letter-spacing: -2px;
+  color: #232536;
+    }
+    h2 {
+      padding: 34px 0px 62px;
+      font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 64px;
+  color: #232536;
+    }
+    p {
+        font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 28px;
+color: #6d6e76;
+max-width: 800px;
+    }
+}
