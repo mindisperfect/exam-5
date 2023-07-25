@@ -3,7 +3,7 @@ import "../../components/styles/AllPosts.scss";
 import { toast } from "react-toastify";
 import { request } from "../../server/request";
 import { NavLink, useParams } from "react-router-dom";
-import { IMG_URL, LIMIT } from "../../const"; //IMG_URL,
+import { LIMIT } from "../../const"; 
 import { Pagination } from "antd";
 
 const CategoriesP = () => {
@@ -14,6 +14,26 @@ const CategoriesP = () => {
   const [page, setPage] = useState();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+
+  // useEffect(() => {
+  //   async function getPosts() {
+  //     try {
+  //       let { data } = await request.get(
+  //         `post?page=${page}&limit=${LIMIT}&search=${searching}&category=${id}`
+  //       );
+  //       let res = await request.get(`category/${id}`);
+  //       setTitle(res.data.name);
+  //       setDescription(res.data.description);
+  //       setPosts(data.data);
+  //       setTotal(data.pagination.total);
+  //       setPage(data.pagination.page);
+  //       console.log(data.data);
+  //     } catch (err) {
+  //       toast.error(err.response);
+  //     }
+  //   }
+  //   getPosts();
+  // }, [searching, id, page]);
 
   useEffect(() => {
     async function getPosts() {
@@ -27,16 +47,13 @@ const CategoriesP = () => {
         setPosts(data.data);
         setTotal(data.pagination.total);
         setPage(data.pagination.page);
-        // const post = data.data
-        // setPosts(post);
-        // console.log(post);
-        console.log(data);
+        console.log(data.data);
       } catch (err) {
         toast.error(err.response);
       }
     }
     getPosts();
-  }, [id, page, searching]);
+  }, [searching, id, page]);
 
   const onChange = (page) => {
     setPage(page);
@@ -62,10 +79,10 @@ const CategoriesP = () => {
         <div className="owl-carousel">
           <div className="boxs">
             {posts.map((pr, i) => (
-              <NavLink key={i}> 
+              <NavLink key={i}>
                 <div className="box">
                   <div className="box-left">
-                    <img height={100} src={IMG_URL + pr.photo._id + "." + pr.photo.name.split(".")[1]} alt={pr.name} />
+                    {/* <img height={100} src={IMG_URL + pr.photo._id + "." + pr.photo.name.split(".")[1]} alt={pr.name} /> */}
                   </div>
                   <div className="box-right">
                     <p className="p-4">{pr.category.name}</p>
@@ -80,7 +97,7 @@ const CategoriesP = () => {
                       <h3>{pr.user.first_name}</h3>
                       <h3>{pr.user.last_name}</h3>
                     </div>
-                    <p className="p-5">{pr.description}</p>
+                    <p style={{maxWidth: "400px"}} className="p-2">{pr.description}</p>
                     <p className="p-5">
                       <b>Created at: </b>
                       {pr.user.createdAt.split("T")[0]}

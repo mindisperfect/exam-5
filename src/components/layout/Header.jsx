@@ -1,14 +1,18 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import Logo from "../../assets/images/Logo.png";
+import { Link, NavLink } from "react-router-dom";
+// import Logo from "../../assets/images/Logo.png";
 import "../styles/layout-styles/Nav.scss";
+import { Fragment, useContext } from "react";
+import AuthContext from "../../context/AuthContext";
 
-const Header = () => {
+function Header() {
+  const isAuthenticated = useContext(AuthContext);
   return (
     <nav id="navbar" className="navbarshrink">
       <div className="container navcontainer">
         <div className="navlogo">
-          <img src={Logo} alt="" />
+          <Link to="/">
+            {isAuthenticated ? <h1 style={{color: "white"}}>My Blogs</h1> : <h1 style={{color: "white"}}>Najot news</h1>}
+          </Link>
         </div>
         <div className="hamburger">
           <i className="uil uil-bars"></i>
@@ -18,11 +22,19 @@ const Header = () => {
           <NavLink to="/posts">Posts</NavLink>
           <NavLink to="/about">About Us</NavLink>
           <NavLink to="/register">Register</NavLink>
-          <NavLink to="/login"><button className="navbutton">Login</button></NavLink>
+          <button className="navbutton">
+            {isAuthenticated ? (
+              <Fragment>
+                <NavLink to="account" style={{color: "#232536"}}>Account</NavLink>
+              </Fragment>
+            ) : (
+              <Link to="login" style={{color: "#232536"}}>Login</Link>
+            )}
+          </button>
         </div>
       </div>
     </nav>
   );
-};
+}
 
 export default Header;

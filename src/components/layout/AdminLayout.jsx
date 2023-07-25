@@ -42,7 +42,7 @@ const AdminLayout = () => {
   return (
     <Layout>
       <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className="demo-logo-vertical">Logo</div>
+        <div className="demo-logo-vertical" style={{color: "white", padding: "10px 20px", fontSize: "20px"}}>Najot news</div>
         <Menu
           theme="dark"
           mode="inline"
@@ -89,6 +89,7 @@ const AdminLayout = () => {
             background: colorBgContainer,
             display: "flex",
             justifyContent: "space-between",
+            alignItems: "center"
           }}
         >
           <Button
@@ -101,7 +102,7 @@ const AdminLayout = () => {
               height: 64,
             }}
           />
-          <Link to="/admin-account">
+          <Link to="/admin-account" style={{marginRight: "50px"}}>
             <Avatar shape="square" size={32} icon={<UserOutlined />} />
           </Link>
         </Header>

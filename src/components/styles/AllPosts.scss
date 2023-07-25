@@ -98,6 +98,7 @@
   }
 }
 
+
 .input-modal {
   margin: 40px 0px;
   width: 100%;
@@ -132,6 +133,9 @@
   border-radius: 4px;
   &:hover {
     box-shadow: 0px 3px 7px 0px silver;
+  }
+  .p-2 {
+    max-width: 400px;
   }
 }
 
