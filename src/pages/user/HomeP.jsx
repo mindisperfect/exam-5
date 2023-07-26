@@ -6,7 +6,7 @@ import Slider from "react-slick";
 import GetNewsLastOne from "../../components/card/GetNewsLastOne";
 import { IMG_URL } from "../../const";
 import { Link } from "react-router-dom";
-// import ChooseCategoryP from "../../components/card/ChooseCategoryP";
+import firstIcon from "../../assets/images/first-icon.png"
 
 const HomeP = () => {
   const [post, setPost] = useState([]);
@@ -143,9 +143,9 @@ const HomeP = () => {
             {post.map((pr, i) => (
               <div key={i}>
                 <div className="card-1">
-                  <img height={230} src={IMG_URL + pr.photo._id + "." + pr.photo.name.split(".")[1]} alt="" />
+                  <img height={200}  src={IMG_URL + pr.photo._id + "." + pr.photo.name.split(".")[1]} alt="" />
                   <div className="content" style={{ maxWidth: "400px" }}>
-                    <h1>{pr.title}</h1>
+                    <h1 style={{width: "300px"}}>{pr.title}</h1>
                     <p className="line-clamp">{pr.description}</p>
                     <p>
                       <b>Created at: </b>
@@ -167,7 +167,7 @@ const HomeP = () => {
           <div className="home-categories">
             {category.map((pr, i) => (
               <div className="home-category-card" key={i}>
-              <img height={100} src={IMG_URL + pr.photo._id + "." + pr.photo.name.split(".")[1]} alt={pr.name} />
+              <img src={firstIcon} alt="" />
               {console.log(pr.photo._id)}
               <h1>{pr.name}</h1>
               <p>{pr.description}</p>

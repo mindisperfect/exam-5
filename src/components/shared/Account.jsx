@@ -8,7 +8,6 @@ import { setAuthCookies } from "../../utils/setAuthCookies";
 import { toast } from "react-toastify";
 
 const { useForm } = Form;
-const { TextArea } = Input;
 
 const Account = () => {
   let items = [
@@ -78,6 +77,7 @@ const Information = () => {
     }
   };
   return (
+    <div className="container">
     <Row>
       <Col lg={6}>
         <Upload
@@ -152,34 +152,6 @@ const Information = () => {
           >
             <Input />
           </Form.Item>
-          <Form.Item
-            name="info"
-            label="Info"
-            rules={[
-              {
-                required: true,
-                message: "Please fill this field !",
-              },
-            ]}
-          >
-            <TextArea />
-          </Form.Item>
-          <Form.Item
-            name="phoneNumber"
-            label="Phone Number"
-            rules={[
-              {
-                required: true,
-                message: "Please fill this field !",
-              },
-              {
-                pattern: "",
-                message: "+998999400807",
-              },
-            ]}
-          >
-            <Input />
-          </Form.Item>
           <Form.Item>
             <Button loading={loading} htmlType="submit" type="primary">
               Save
@@ -188,6 +160,7 @@ const Information = () => {
         </Form>
       </Col>
     </Row>
+    </div>
   );
 };
 
@@ -208,6 +181,7 @@ const Password = () => {
     }
   };
   return (
+    <div className="container">
     <Form form={form} layout="vertical" autoComplete="off" onFinish={submit}>
       <Form.Item
         name="currentPassword"
@@ -239,6 +213,7 @@ const Password = () => {
         </Button>
       </Form.Item>
     </Form>
+    </div>
   );
 };
 

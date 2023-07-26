@@ -1,11 +1,12 @@
 import { Link, NavLink } from "react-router-dom";
 // import Logo from "../../assets/images/Logo.png";
 import "../styles/layout-styles/Nav.scss";
-import { Fragment, useContext } from "react";
-import AuthContext from "../../context/AuthContext";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 function Header() {
-  const isAuthenticated = useContext(AuthContext);
+  const { isAuthenticated } = useContext(AuthContext);
+  const isMyPostsPage = location.pathname === "/my-posts";
   return (
     <nav id="navbar" className="navbarshrink">
       <div className="container navcontainer">
@@ -22,14 +23,10 @@ function Header() {
           <NavLink to="/posts">Posts</NavLink>
           <NavLink to="/about">About Us</NavLink>
           <NavLink to="/register">Register</NavLink>
-          <button className="navbutton">
-            {isAuthenticated ? (
-              <Fragment>
-                <NavLink to="account" style={{color: "#232536"}}>Account</NavLink>
-              </Fragment>
-            ) : (
-              <Link to="login" style={{color: "#232536"}}>Login</Link>
-            )}
+          <button className="navbutton" >
+          <Link to={isAuthenticated ? "/account" : "/login"} style={{color: "black"}}>
+                  {isAuthenticated === undefined ? "Login" : isAuthenticated ? "Account" : isMyPostsPage ? "Account" : "Login"}
+              </Link>
           </button>
         </div>
       </div>
