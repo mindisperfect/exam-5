@@ -6,7 +6,6 @@ import Slider from "react-slick";
 import GetNewsLastOne from "../../components/card/GetNewsLastOne";
 import { IMG_URL } from "../../const";
 import { Link } from "react-router-dom";
-import firstIcon from "../../assets/images/first-icon.png";
 
 const HomeP = () => {
   const [post, setPost] = useState([]);
@@ -147,7 +146,7 @@ const HomeP = () => {
                   <img
                     height={300}
                     src={
-                      IMG_URL + pr.photo._id + "." + pr.photo.name.split(".")[1]
+                      IMG_URL + pr?.photo?._id + "." + pr?.photo?.name.split(".")[1]
                     }
                     alt="img"
                     style={{width: "100%"}}

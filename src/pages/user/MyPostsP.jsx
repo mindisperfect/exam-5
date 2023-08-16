@@ -10,7 +10,7 @@ const MyPostsPage = () => {
   const [total, setTotal] = useState(null);
   const [page, setPage] = useState(1);
   const [categories, setCategories] = useState([]);
-  const [downloadedImage, setdownloadedImage] = useState(null);
+  const [uploadedImage, setuploadedImage] = useState(null);
   const [form] = Form.useForm();
   const [PhotoUrl, setPhotoUrl] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -53,7 +53,7 @@ const MyPostsPage = () => {
       const form = new FormData();
       form.append("file", e.target.files[0]);
       let res = await request.post("upload", form);
-      setdownloadedImage(res?.data?._id);
+      setuploadedImage(res?.data?._id);
       const imageUrl = `${IMG_URL + res?.data?._id}.${
         res?.data?.name.split(".")[1] }`;
       setPhotoUrl(imageUrl);
@@ -64,10 +64,10 @@ const MyPostsPage = () => {
 
   const onFinish = async (values) => {
     try {
-      const { title, description, tags, category } = values;
-      const tagsArray = tags ? tags.split(",").map((tag) => tag.trim()) : [];
-      const postData = { title, description, tags: tagsArray, category, photo: downloadedImage, };
-   if (selected) {
+      let { title, description, tags, category, photo } = values;
+      const tagsArray = tags ? tags.split(",") : [];
+      const postData = { title, description, tags: tagsArray, category, photo: uploadedImage, };
+    if (selected) {
         let response = await request.put(`post/${selected}`, postData);
         if (response.status === 200) {
           getPosts();
@@ -76,10 +76,8 @@ const MyPostsPage = () => {
         } else {
           toast.error("Biroz kuting");
         }
-        console.log("succes");
       } else {
         const response = await request.post("post", postData);
-
         getPosts();
         if (response.status === 201) {
           toast.success("Post created");
@@ -96,7 +94,7 @@ const MyPostsPage = () => {
   };
 
   const setEditingValues = (data) => {
-    form.setFieldsValue({ title: data.title, category: data.category._id, tags: data.tags.join(","), description: data.description, downloadedImage: data.photo._id, });
+    form.setFieldsValue({ title: data.title, category: data.category._id, tags: data.tags.join(","), description: data.description, uploadedImage: data.photo._id, });
     const imageUrl = `${IMG_URL + data.photo._id}.${ data.photo.name.split(".")[1] }`;
     setPhotoUrl(imageUrl);
   };
