@@ -107,6 +107,7 @@ const MyPostsPage = () => {
   const openModal = () => {
     setIsModalOpen(true);
     clearFormFields();
+    setSelected(null)
   };
   async function editPost(id) {
     try {
