@@ -57,9 +57,9 @@ const AdminLayout = () => {
               label: <Link to="/dashboard">Dashboard</Link>,
             },
             {
-              key: "/categories",
+              key: "/category",
               icon: <VideoCameraOutlined />,
-              label: <Link to="/categories">Categories</Link>,
+              label: <Link to="/category">Category</Link>,
             },
             {
               key: "/users",

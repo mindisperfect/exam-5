@@ -3,7 +3,7 @@ import "../../components/styles/AllPosts.scss";
 import { toast } from "react-toastify";
 import { request } from "../../server/request";
 import { NavLink, useParams } from "react-router-dom";
-import { LIMIT } from "../../const"; 
+import { IMG_URL, LIMIT } from "../../const"; 
 import { Pagination } from "antd";
 
 const CategoriesP = () => {
@@ -14,26 +14,6 @@ const CategoriesP = () => {
   const [page, setPage] = useState();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-
-  // useEffect(() => {
-  //   async function getPosts() {
-  //     try {
-  //       let { data } = await request.get(
-  //         `post?page=${page}&limit=${LIMIT}&search=${searching}&category=${id}`
-  //       );
-  //       let res = await request.get(`category/${id}`);
-  //       setTitle(res.data.name);
-  //       setDescription(res.data.description);
-  //       setPosts(data.data);
-  //       setTotal(data.pagination.total);
-  //       setPage(data.pagination.page);
-  //       console.log(data.data);
-  //     } catch (err) {
-  //       toast.error(err.response);
-  //     }
-  //   }
-  //   getPosts();
-  // }, [searching, id, page]);
 
   useEffect(() => {
     async function getPosts() {
@@ -82,7 +62,13 @@ const CategoriesP = () => {
               <NavLink key={i}>
                 <div className="box">
                   <div className="box-left">
-                    {/* <img height={100} src={IMG_URL + pr.photo._id + "." + pr.photo.name.split(".")[1]} alt={pr.name} /> */}
+                  <img
+                    height={200}
+                    src={
+                      IMG_URL + pr?.photo?._id + "." + pr?.photo?.name.split(".")[1]
+                    }
+                    alt="title"
+                  />
                   </div>
                   <div className="box-right">
                     <p className="p-4">{pr.category.name}</p>

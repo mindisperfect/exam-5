@@ -25,6 +25,13 @@
   overflow: hidden;
 }
 
+.line-clamps {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+}
+
 .ant-layout-sider {
   height: 100vh;
 }
@@ -33,4 +40,10 @@
   margin: 0 !important;
   height: calc(100vh - 64px);
   overflow: scroll;
+}
+
+.grid-box {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
 }

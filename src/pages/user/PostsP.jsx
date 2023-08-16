@@ -3,7 +3,7 @@ import "../../components/styles/AllPosts.scss";
 import { request } from "../../server/request";
 import { NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
-import { LIMIT } from "../../const";
+import { IMG_URL, LIMIT } from "../../const";
 import { Pagination } from "antd";
 import { Spin } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
@@ -79,21 +79,23 @@ const AllPosts = () => {
                 <NavLink key={index}>
                   <div className="box">
                     <div className="box-left">
-                      {/* <img
-                      height={230} 
-                      src={IMG_URL + el.photo._id + "." + el.photo.name.split(".")[1] }
-                      alt="" /> */}
+                    <img
+                    height={300}
+                    src={
+                      IMG_URL + el?.photo?._id + "." + el?.photo?.name.split(".")[1]
+                    }
+                    alt=""
+                  />                      
                     </div>
                     <div className="box-right">
-                      <p className="p-4">{el.category.name}</p>
+                      {/* <p className="p-4">{el.category.name}</p> */}
                       <h1>{el.title}</h1>
                       <div
                         style={{
                           display: "flex",
                           alignItems: "center",
                           gap: "12px",
-                        }}
-                      >
+                        }} >
                         <h3>{el.user.first_name}</h3>
                         <h3>{el.user.last_name}</h3>
                       </div>

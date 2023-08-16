@@ -7,7 +7,7 @@ const token = Cookies.get(TOKEN);
 
 export const request = axios.create({
   baseURL: ENDPOINT,
-  timeout: 10000,
+  timeout: 10000,                   
   headers: {
     Authorization: token ? `Bearer ${token}` : "",
   },

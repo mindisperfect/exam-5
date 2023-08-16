@@ -10,7 +10,6 @@ import LoginP from "./pages/user/LoginP";
 import RegisterP from "./pages/user/RegisterP";
 import PostsP from "./pages/user/PostsP";
 import PostP from "./pages/user/PostP";
-import MyPostsP from "./pages/user/MyPostsP";
 import AccountP from "./pages/user/AccountP";
 import NotFoundP from "./pages/NotFoundP";
 import DashboardP from "./pages/admin/DashboardP";
@@ -20,6 +19,8 @@ import CategoriesP from "./pages/admin/CategoriesP";
 
 import { AuthContext } from "./context/AuthContext";
 import AdminAccountP from "./pages/admin/AdminAccountP";
+import CategoriesPage from "./pages/admin/CategoriesPage";
+import MyPostsPage from "./pages/user/MyPostsP";
 
 function App() {
   let { isAuthenticated, role } = useContext(AuthContext);
@@ -36,7 +37,7 @@ function App() {
           <Route path="/:id" element={<CategoriesP />} />
           {isAuthenticated && role === "user" && (
             <Fragment>
-              <Route path="my-posts" element={<MyPostsP />} />
+              <Route path="my-posts" element={<MyPostsPage />} />
               <Route path="account" element={<AccountP />} />
             </Fragment>
           )}
@@ -46,8 +47,8 @@ function App() {
             <Route path="/" element={<AdminLayout />}>
               <Route path="dashboard" element={<DashboardP />} />
               <Route path="users" element={<UsersP />} />
-              <Route path="categories" element={<CategoriesP />} />
               <Route path="all-posts" element={<AllPosts />} />
+              <Route path="category" element={<CategoriesPage />} />  
               <Route path="admin-account" element={<AdminAccountP />} />
             </Route>
           </Fragment>

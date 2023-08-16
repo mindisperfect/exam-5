@@ -60,6 +60,10 @@ nav a:hover {
   text-decoration: underline;
 }
 
+.buttons {
+  gap: 20px;
+}
+
 .navbutton {
   margin-left: 20px;
   display: none;
@@ -67,6 +71,7 @@ nav a:hover {
   background-color: #f4f0f8;
   color: #232536;
   border: none;
+  
   padding: 16px 48px;
   font-weight: 700;
   font-size: 18px;
