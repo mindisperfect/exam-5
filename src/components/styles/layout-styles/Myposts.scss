@@ -1,0 +1,14 @@
+.card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    margin-bottom: 30px;
+    border: 1px solid silver;
+    border-radius: 8px;
+}
+
+@media (max-width: 830px) {
+    .card {
+        grid-template-columns: 1fr;
+    }
+}

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { request } from "../../server/request";
 import { IMG_URL, LIMIT } from "../../const";
 import { toast } from "react-toastify";
+import "../../components/styles/layout-styles/Myposts.scss"
 
 const MyPostsPage = () => {
   const [search, setSearch] = useState("");
@@ -17,7 +18,7 @@ const MyPostsPage = () => {
   const [tags, setTags] = useState("");
   const [posts, setMyPosts] = useState([]);
   const [selected, setSelected] = useState(null);
-  const [edit, setEdit] = useState(null);
+  const [, setEdit] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const showModal = () => {
@@ -64,7 +65,7 @@ const MyPostsPage = () => {
 
   const onFinish = async (values) => {
     try {
-      let { title, description, tags, category, photo } = values;
+      let { title, description, tags, category } = values;
       const tagsArray = tags ? tags.split(",") : [];
       const postData = { title, description, tags: tagsArray, category, photo: uploadedImage, };
     if (selected) {
@@ -117,7 +118,7 @@ const MyPostsPage = () => {
       setEditingValues(data);
       showModal();
     } catch (err) {
-      console.log(err);
+      toast.error(err.message)
     }
   }
   async function deletePost(id) {
@@ -257,16 +258,7 @@ const MyPostsPage = () => {
                 indicator={antIcon} /> ) : null}
             {posts.length == 0 ? "Nothing"
              : posts.map((pr) => (
-                  <div
-                    key={pr._id}
-                    className="card"
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "50px",
-                      marginBottom: "30px",
-                      border: "1px solid silver",
-                      borderRadius: "8px", }} >
+                  <div key={pr._id} className="card">
                     {pr?.photo?._id ? (
                       <div>
                         <img
@@ -275,15 +267,15 @@ const MyPostsPage = () => {
                           alt="img"
                           height={300}
                           width={450}
-                          style={{ borderRadius: "8px" }} />
+                          style={{ borderRadius: "8px", maxWidth: "100%", height: "250px" }} />
                       </div> ) : null}
                       <div className="box-right">
                         <p className="p-4">{pr?.category?.name}</p>
                         <h1>{pr?.title}</h1>
                         <p className="p-5">{pr?.description}</p>
                         <div className="btns">
-                          <button onClick={() => editPost(pr._id)} className="btn" >Edit</button>
-                          <button onClick={() => deletePost(pr._id)} className="btn-danger">Delete</button>
+                          <button onClick={() => editPost(pr?._id)} className="btn" >Edit</button>
+                          <button onClick={() => deletePost(pr?._id)} className="btn-danger">Delete</button>
                         </div>
                       </div>
                     </div>

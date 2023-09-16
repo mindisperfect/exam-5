@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import { Fragment } from "react";
 import "../../components/styles/About.scss"
 import aboutUsImg1 from "../../assets/images/about-img-1.png"
 import aboutUsImg2 from "../../assets/images/about-img-2.png"
@@ -7,8 +7,8 @@ const AboutP = () => {
   return (
     <Fragment>
       <div className="container">
-      <section class="mision-section">
-        <div class="mision-left">
+      <section className="mision-section">
+        <div className="mision-left">
           <h4>OUR MISION</h4>
           <h2>
             Creating valuable content for <br />
@@ -22,7 +22,7 @@ const AboutP = () => {
             viverra adipiscing at in tellus.
           </p>
         </div>
-        <div class="mision-right">
+        <div className="mision-right">
           <h4>OUR MISION</h4>
           <h2>
             A platform that empowers <br />
@@ -39,9 +39,9 @@ const AboutP = () => {
       </section>
       </div>
 
-      <section class="container history-section">
-        <div class="history-card-1">
-          <div class="history-text-1">
+      <section className="container history-section">
+        <div className="history-card-1">
+          <div className="history-text-1">
             <h2>Our team of creatives</h2>
             <h3>
               Lorem ipsum dolor sit amet, consectetur <br />

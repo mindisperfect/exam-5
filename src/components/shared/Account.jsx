@@ -68,7 +68,7 @@ const Information = () => {
     try {
       setLoading(true);
       await request.put("auth/details", values);
-      message.success("Edited successfully !");
+      message.success("Edited successfully !"); 
       getUserData();
     } catch (err) {
       console.log(err);
@@ -93,18 +93,10 @@ const Information = () => {
               alt="avatar"
               style={{
                 width: "100%",
-              }}
-            />
-          ) : (
+              }} /> ) : (
             <div>
               {imgLoading ? <LoadingOutlined /> : <PlusOutlined />}
-              <div
-                style={{
-                  marginTop: 8,
-                }}
-              >
-                Upload
-              </div>
+              <div style={{ marginTop: 8, }} > Upload </div>
             </div>
           )}
         </Upload>
@@ -114,8 +106,7 @@ const Information = () => {
           form={form}
           layout="vertical"
           autoComplete="off"
-          onFinish={submit}
-        >
+          onFinish={submit} >
           <Form.Item
             name="first_name"
             label="First name"
@@ -124,8 +115,7 @@ const Information = () => {
                 required: true,
                 message: "Please fill this field !",
               },
-            ]}
-          >
+            ]} >
             <Input />
           </Form.Item>
           <Form.Item
@@ -136,8 +126,7 @@ const Information = () => {
                 required: true,
                 message: "Please fill this field !",
               },
-            ]}
-          >
+            ]} >
             <Input />
           </Form.Item>
           <Form.Item
@@ -166,7 +155,7 @@ const Information = () => {
 
 const Password = () => {
   const [form] = useForm();
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);  
   const submit = async (values) => {
     try {
       setLoading(true);
@@ -191,8 +180,7 @@ const Password = () => {
             required: true,
             message: "Please fill this field !",
           },
-        ]}
-      >
+        ]} >
         <Input />
       </Form.Item>
       <Form.Item
@@ -203,8 +191,7 @@ const Password = () => {
             required: true,
             message: "Please fill this field !",
           },
-        ]}
-      >
+        ]} >
         <Input />
       </Form.Item>
       <Form.Item>

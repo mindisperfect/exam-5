@@ -27,7 +27,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<FrontLayout />}>
+        <Route path="/" element={<FrontLayout />}> 
           <Route index element={<HomeP />} />
           <Route path="about" element={<AboutP />} />
           <Route path="login" element={<LoginP />} />
@@ -38,7 +38,7 @@ function App() {
           {isAuthenticated && role === "user" && (
             <Fragment>
               <Route path="my-posts" element={<MyPostsPage />} />
-              <Route path="account" element={<AccountP />} />
+              <Route path="account" element={<AccountP />} /> 
             </Fragment>
           )}
         </Route>

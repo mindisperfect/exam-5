@@ -5,7 +5,6 @@ import "./index.css";
 
 import { applyMiddleware, createStore } from "redux";
 import thunk from "redux-thunk";
-import { ToastContainer } from "react-toastify";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -14,6 +13,7 @@ import "antd/dist/reset.css";
 import AuthContextProvider from "./context/AuthContext.jsx";
 import { Provider } from "react-redux";
 import { rootReducer } from "./redux/reducers/rootReducers.js";
+import { ToastContainer } from "react-toastify";
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 

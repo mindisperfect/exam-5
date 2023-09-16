@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from "react";
-import {
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-} from "@ant-design/icons";
+  import {
+    MenuFoldOutlined,
+    MenuUnfoldOutlined,
+    UploadOutlined,
+    UserOutlined,
+    VideoCameraOutlined,
+  } from "@ant-design/icons";
 import { Layout, Menu, Button, theme, Avatar } from "antd";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
@@ -102,7 +102,7 @@ const AdminLayout = () => {
               height: 64,
             }}
           />
-          <Link to="/admin-account" style={{marginRight: "50px"}}>
+          <Link to="/user-account" style={{marginRight: "50px"}}>
             <Avatar shape="square" size={32} icon={<UserOutlined />} />
           </Link>
         </Header>
@@ -112,8 +112,7 @@ const AdminLayout = () => {
             padding: 24,
             minHeight: 280,
             background: colorBgContainer,
-          }}
-        >
+          }} >
           <Outlet />
         </Content>
       </Layout>

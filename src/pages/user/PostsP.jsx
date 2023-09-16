@@ -75,7 +75,7 @@ const AllPosts = () => {
                 indicator={antIcon}
               />
             ) : (
-              posts.map((el, index) => (
+              posts.slice(0, 5).map((el, index) => (
                 <NavLink key={index}>
                   <div className="box">
                     <div className="box-left">
@@ -96,13 +96,13 @@ const AllPosts = () => {
                           alignItems: "center",
                           gap: "12px",
                         }} >
-                        <h3>{el.user.first_name}</h3>
-                        <h3>{el.user.last_name}</h3>
+                        <h3>{el?.user?.first_name}</h3>
+                        <h3>{el?.user?.last_name}</h3>
                       </div>
-                      <p className="p-5">{el.description}</p>
+                      <p className="p-5">{el?.description}</p>
                       <p className="p-5">
                         <b>Created at: </b>
-                        {el.user.createdAt.split("T")[0]}
+                        {el?.user?.createdAt.split("T")[0]}
                       </p>
                     </div>
                   </div>
